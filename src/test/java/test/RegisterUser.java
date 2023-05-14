@@ -1,5 +1,6 @@
 package test;
 
+import base.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import page.CreateAccountPage;
@@ -34,9 +35,9 @@ public class RegisterUser {
         createAccountPage.getAccountCreatedText();
         Assertions.assertEquals(expected__, actual__);
 
-        createAccountPage.clickContinueButton();
-        createAccountPage.navigatedBackToTheMainSiteFromMultipleIframe("aswift_1", "ad_iframe");
-        createAccountPage.clickInnerFrameCloseButton();
+
+        createAccountPage.clickContinueButtonAndNavigatedBackToTheMainSiteFromMultipleIframe
+                ("aswift_1", "ad_iframe");
 
         String expected___ = "Logged in as Jane Doe";
         String actual___ = homePage.getLoggedInAsUsernameText();
@@ -48,6 +49,7 @@ public class RegisterUser {
         String actual____ = homePage.getAccountDeletedText();
         Assertions.assertEquals(expected____, actual____);
 
+        HomePage.quit();
 
     }
 

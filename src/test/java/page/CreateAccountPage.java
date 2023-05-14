@@ -6,11 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import test.RegisterUser;
 
 
 public class CreateAccountPage extends BasePage {
 
 
+
+    HomePage homePage = new HomePage();
     @FindBy(css = "input[data-qa='password']")
     WebElement password;
     @FindBy(css = "input[data-qa='first_name']")
@@ -50,8 +53,6 @@ public class CreateAccountPage extends BasePage {
     @FindBy(id = "dismiss-button")
     WebElement innerFrameCloseButton;
 
-
-    // parts of the main method
 
     public void waitForFirstNameFieldIsClickable() {
         firstName = wait.until(ExpectedConditions.elementToBeClickable(firstName));
@@ -102,7 +103,10 @@ public class CreateAccountPage extends BasePage {
         continueButton.click();
     }
 
-    public void navigatedBackToTheMainSiteFromMultipleIframe(String ParentFrame, String ChildFrame) {
+    public void clickContinueButtonAndNavigatedBackToTheMainSiteFromMultipleIframe(String ParentFrame, String ChildFrame) {
+
+        clickContinueButton();
+
         try {
             driver.switchTo().frame(ParentFrame).switchTo().frame(ChildFrame);
             System.out.println("Navigated to innerframe with id " + ChildFrame
@@ -115,6 +119,8 @@ public class CreateAccountPage extends BasePage {
                     + ChildFrame + "which is present on frame with id"
                     + ParentFrame + e.getStackTrace());
         }
+
+        clickInnerFrameCloseButton();
     }
 
     public void clickInnerFrameCloseButton() {
@@ -122,7 +128,6 @@ public class CreateAccountPage extends BasePage {
     }
 
 
-    // main method
     public void fillEnterAccountInformationPage() {
         waitForFirstNameFieldIsClickable();
         fillPasswordField("password");
@@ -138,10 +143,10 @@ public class CreateAccountPage extends BasePage {
     }
 
 
-    // assertion
-
     public String getAccountCreatedText() {
         return accountCreatedText.getText();
     }
+
+
 
 }

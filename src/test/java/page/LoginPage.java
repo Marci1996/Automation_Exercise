@@ -4,14 +4,23 @@ import base.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+
 import java.util.Random;
 
 public class LoginPage extends BasePage {
 
+
     Random random = new Random();
     int num = random.nextInt(100000);
 
+    HomePage homePage = new HomePage();
 
+    private final String permanentAccountEmailAddress = "PermanentEmail@gmail.com";
+    private final String permanentAccountPassword = "PermanentPassword";
+
+
+    // signup elements
     @FindBy(css = "input[data-qa='signup-name']")
     WebElement signUpName;
 
@@ -21,10 +30,25 @@ public class LoginPage extends BasePage {
     @FindBy(css = "button[data-qa='signup-button']")
     WebElement signUpButton;
 
-    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[3]/div/h2")
+
+
+    //@FindBy(xpath = "//*[@id=\"form\"]/div/div/div[3]/div/h2")
+    @FindBy(xpath = "//div[contains(@class, 'signup-form')]/h2")
     WebElement newUserSignUpText;
 
 
+    // login elements
+    @FindBy(css = "input[data-qa='login-email']")
+    WebElement logInEmailAddress;
+
+    @FindBy(css = "input[data-qa='login-password']")
+    WebElement password;
+
+    @FindBy(css = "button[data-qa='login-button']")
+    WebElement loginButton;
+
+
+    // signup methods
     public String getTitle() {
         System.out.println(driver.getTitle());
         return driver.getTitle();
@@ -56,6 +80,33 @@ public class LoginPage extends BasePage {
         fillInsignUpEmailAddress("akarmi@gmail.com" + num);
         fillInsignUpName("Jane Doe");
         clicksignUpButton();
+    }
+
+    // login methods
+    public void fillInloginEmailAddress(String Email) {
+        logInEmailAddress.sendKeys(Email);
+    }
+
+    public void fillInPassword(String Password) {
+        password.sendKeys(Password);
+    }
+
+    public void clickLoginButton() {
+        loginButton.click();
+    }
+
+    public void logInWithCorrectCredentials() {
+        homePage.clickSignUpLogInButton();
+        fillInloginEmailAddress(permanentAccountEmailAddress);
+        fillInPassword(permanentAccountPassword);
+        clickLoginButton();
+    }
+
+    public void logInWithIncorrectCredentials() {
+        homePage.clickSignUpLogInButton();
+        fillInloginEmailAddress("notcorrectemail@gmail.com");
+        fillInPassword("notcorrectpassword");
+        clickLoginButton();
     }
 
 }
