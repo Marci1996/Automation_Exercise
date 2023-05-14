@@ -10,6 +10,7 @@ public class HomePage extends BasePage {
 
 
   //  @FindBy(xpath = "//div[contains(@class, shop-menu)]/ul/[10]")
+
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a")
     WebElement loggedInAsUsername;
 

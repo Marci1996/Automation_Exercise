@@ -16,6 +16,7 @@ public class LoginPage extends BasePage {
 
     HomePage homePage = new HomePage();
 
+
     private final String permanentAccountEmailAddress = "PermanentEmail@gmail.com";
     private final String permanentAccountPassword = "PermanentPassword";
 

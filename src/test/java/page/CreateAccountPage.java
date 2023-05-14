@@ -123,6 +123,7 @@ public class CreateAccountPage extends BasePage {
         clickInnerFrameCloseButton();
     }
 
+
     public void clickInnerFrameCloseButton() {
         innerFrameCloseButton.click();
     }

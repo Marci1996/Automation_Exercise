@@ -18,6 +18,7 @@ public class BasePage {
     public final static String password = "PermanentPassword";
 
 
+
     public BasePage() {
         BaseClass baseClass = new BaseClass();
         driver = baseClass.initializeWebDriver();
