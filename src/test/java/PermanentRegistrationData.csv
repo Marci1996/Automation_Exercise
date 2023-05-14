@@ -1,0 +1,15 @@
+
+// The data that characterises the permanent account can be used after a one-time manual registration
+
+
+Name -> PermanentName
+Email Address -> PermanentEmail@gmail.com
+password -> PermanentPassword
+firstName -> Jane
+lastName -> Doe
+address -> address
+Country -> Canada
+state -> state
+city -> Quebec
+zipcode -> 9391913356
+mobileNumber -> 06109833399
