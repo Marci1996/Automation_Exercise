@@ -11,20 +11,22 @@ public class HomePage extends BasePage {
 
   //  @FindBy(xpath = "//div[contains(@class, shop-menu)]/ul/[10]")
 
-    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a")
+    @FindBy(xpath = "//*[@id='header']/div/div/div/div[2]/div/ul/li[10]/a")
     WebElement loggedInAsUsername;
 
 
     //div[contains(@class, shop-menu)]/ul/[5]
-    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a")
+    @FindBy(xpath = "//*[@id='header']/div/div/div/div[2]/div/ul/li[5]/a")
     WebElement deleteAccount;
 
-    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div/h2/b")
+    @FindBy(xpath = "//*[@id='form']/div/div/div/h2/b")
     WebElement accountDeletedText;
 
 
-    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[1]/div/form/p")
+    @FindBy(xpath = "//*[@id='form']/div/div/div[1]/div/form/p")
     WebElement logInErrorMessage;
+
+
 
 
     public void clickSignUpLogInButton() {
@@ -45,5 +47,9 @@ public class HomePage extends BasePage {
 
     public void logInErrorMessageIsDisplayed() {
         logInErrorMessage.isDisplayed();
+    }
+
+    public void signUpLogInButtonIsDisplayed() {
+        SignUpLogInButton.isDisplayed();
     }
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import page.HomePage;
 import page.LoginPage;
 
-public class LogIn {
+public class LogInLogOut {
 
     LoginPage loginPage = new LoginPage();
 
@@ -31,6 +31,15 @@ public class LogIn {
 
         loginPage.logInWithIncorrectCredentials();
         homePage.logInErrorMessageIsDisplayed();
+    }
+
+    @Test
+    void logOutUser() {
+
+        loginPage.logInWithCorrectCredentials();
+        loginPage.clickLogOutButton();
+        homePage.signUpLogInButtonIsDisplayed();
+
     }
 
 

@@ -17,10 +17,6 @@ public class LoginPage extends BasePage {
     HomePage homePage = new HomePage();
 
 
-    private final String permanentAccountEmailAddress = "PermanentEmail@gmail.com";
-    private final String permanentAccountPassword = "PermanentPassword";
-
-
     // signup elements
     @FindBy(css = "input[data-qa='signup-name']")
     WebElement signUpName;
@@ -30,7 +26,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "button[data-qa='signup-button']")
     WebElement signUpButton;
-
 
 
     //@FindBy(xpath = "//*[@id=\"form\"]/div/div/div[3]/div/h2")
@@ -47,6 +42,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "button[data-qa='login-button']")
     WebElement loginButton;
+
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a")
+    WebElement logOutButton;
 
 
     // signup methods
@@ -98,8 +96,8 @@ public class LoginPage extends BasePage {
 
     public void logInWithCorrectCredentials() {
         homePage.clickSignUpLogInButton();
-        fillInloginEmailAddress(permanentAccountEmailAddress);
-        fillInPassword(permanentAccountPassword);
+        fillInloginEmailAddress(BasePage.email);
+        fillInPassword(BasePage.password);
         clickLoginButton();
     }
 
@@ -108,6 +106,12 @@ public class LoginPage extends BasePage {
         fillInloginEmailAddress("notcorrectemail@gmail.com");
         fillInPassword("notcorrectpassword");
         clickLoginButton();
+    }
+
+    // logOut Method
+
+    public void clickLogOutButton() {
+        logOutButton.click();
     }
 
 }
