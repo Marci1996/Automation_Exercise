@@ -9,7 +9,7 @@ public class HomePage extends BasePage {
     WebElement SignUpLogInButton;
 
 
-  //  @FindBy(xpath = "//div[contains(@class, shop-menu)]/ul/[10]")
+    //  @FindBy(xpath = "//div[contains(@class, shop-menu)]/ul/[10]")
 
     @FindBy(xpath = "//*[@id='header']/div/div/div/div[2]/div/ul/li[10]/a")
     WebElement loggedInAsUsername;
@@ -25,6 +25,11 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='form']/div/div/div[1]/div/form/p")
     WebElement logInErrorMessage;
+
+
+    @FindBy(xpath = "//*[@id='form']/div/div/div[3]/div/form/p")
+    WebElement emailAlreadyExist;
+
 
 
 
@@ -51,5 +56,9 @@ public class HomePage extends BasePage {
 
     public void signUpLogInButtonIsDisplayed() {
         SignUpLogInButton.isDisplayed();
+    }
+
+    public void emailAlreadyExistIsDisplayed() {
+        emailAlreadyExist.isDisplayed();
     }
 }

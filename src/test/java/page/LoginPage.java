@@ -1,6 +1,7 @@
 package page;
 
 import base.BasePage;
+import base.GenerateRandom;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +12,7 @@ import java.util.Random;
 public class LoginPage extends BasePage {
 
 
+    GenerateRandom randomString = new GenerateRandom();
     Random random = new Random();
     int num = random.nextInt(100000);
 
@@ -26,6 +28,7 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = "button[data-qa='signup-button']")
     WebElement signUpButton;
+
 
 
     //@FindBy(xpath = "//*[@id=\"form\"]/div/div/div[3]/div/h2")
@@ -78,6 +81,13 @@ public class LoginPage extends BasePage {
         waitForsignUpNameIsClickable();
         fillInsignUpEmailAddress("akarmi@gmail.com" + num);
         fillInsignUpName("Jane Doe");
+        clicksignUpButton();
+    }
+
+    public void userSignUpWithExistingEmail() {
+        waitForsignUpNameIsClickable();
+        fillInsignUpEmailAddress(BasePage.email);
+        fillInsignUpName(randomString.generateRandomNumLettersLongString(5));
         clicksignUpButton();
     }
 

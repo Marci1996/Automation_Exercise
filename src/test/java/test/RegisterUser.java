@@ -14,7 +14,7 @@ public class RegisterUser {
     CreateAccountPage createAccountPage = new CreateAccountPage();
 
     @Test
-    void RegisterUser() {
+    void registerUser() {
 
         String expected = "Automation Exercise";
         String actual = loginPage.getTitle();
@@ -54,4 +54,11 @@ public class RegisterUser {
 
     }
 
+
+    @Test
+    void registerUserWithExistingEmailAddress() {
+        homePage.clickSignUpLogInButton();
+        loginPage.userSignUpWithExistingEmail();
+        homePage.emailAlreadyExistIsDisplayed();
+    }
 }
